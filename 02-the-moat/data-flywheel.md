@@ -37,22 +37,22 @@
 ## Encroachment Threat Assessment
 
 ### 1. Platform Encroachment
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Microsoft Copilot Studio / Salesforce Agentforce
+**Vector:** Native AI agents that can classify emails, extract information from documents, orchestrate workflows, and trigger actions across enterprise applications.
+**Time-to-threat:** 12-24 months
+**% of value at risk:** 35%
 
 ### 2. Vertical Competitor
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Customer service automation platforms specialized in case management and order processing (e.g., Salesforce Service Cloud AI, Zendesk AI, ServiceNow AI Agents)
+**Vector:** Industry-specific solutions that offer pre-built workflows for request classification, document processing, business rule validation, and operational automation.
+**Time-to-threat:** 6-12 months
+**% of value at risk:** 40%
 
 ### 3. Adjacent Expansion
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Enterprise automation platforms such as UiPath, Microsoft Power Platform, Automation Anywhere, or Celonis
+**Vector:** Expansion from workflow automation into AI-driven operational agents capable of processing emails, extracting data, and executing transactions across multiple systems.
+**Time-to-threat:** 18-36 months
+**% of value at risk:** 25%
 
 ---
 
@@ -60,9 +60,19 @@
 
 *Your partner played the Big Tech attacker. What was their plan to kill you?*
 
-**Attacker:**
-**Attack vector (target the weakest loop):**
-**Weeks 1-4 - what they ship:**
-**Weeks 5-8 - how they poach users:**
-**Weeks 9-12 - why users don't come back:**
-**Your defense:**
+**Attacker:** Microsoft Copilot / Salesforce Einstein launching a pre-built AI Operations Agent for customer order processing.
+**Attack vector (target the weakest loop):** Attack the Data & Trust Loop by offering instant email classification, document extraction, and workflow automation bundled into existing enterprise licenses, reducing the perceived value of a custom Edenred solution.
+**Weeks 1-4 - what they ship:** Out-of-the-box email and attachment understanding (PDF, Excel, text).
+Salesforce-native case classification.
+Generic order-processing agents.
+No-code workflow builder for customer service teams.
+**Weeks 5-8 - how they poach users:** Offer faster deployment and lower implementation costs.
+Bundle capabilities into existing Microsoft or Salesforce contracts.
+Demonstrate similar automation rates without custom development.
+Position custom solutions as expensive and difficult to maintain.
+**Weeks 9-12 - why users don't come back:** Customer service teams become dependent on the platform ecosystem.
+New automations are created directly within the vendor platform.
+Procurement prefers a standard enterprise solution over a bespoke product.
+Users perceive AI capabilities as a commodity.
+**Your defense:** The AI is not the product; the operational knowledge is.
+Big Tech would commoditize the AI layer and bundle it into Salesforce/Microsoft platforms. Our defense is owning the workflow layer and continuously accumulating proprietary operational data, customer rules, and TRI2 process knowledge that become harder to replicate over time.
