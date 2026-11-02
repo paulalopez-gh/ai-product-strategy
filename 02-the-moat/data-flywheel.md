@@ -8,7 +8,7 @@
 | Loop | What It Measures | Score 1 | Score 5 | Score |
 |------|------------------|---------|---------|-------|
 | **Correction** | Do users fix AI outputs? Is that signal captured and reused? | No capture | Automated retraining | 5/5 |
-| **Preference** | Does the product learn individual / team preferences over time? | Stateless | Deep personalization | 3/5 |
+| **Preference** | Does the product learn individual / team preferences over time? | Stateless | Deep personalization | 4/5 |
 | **Domain Context** | Does usage in one area improve quality in adjacent areas? | Siloed | Cross-domain transfer | 5/5 |
 | **Network** | Does each new user / team make the product better for everyone? | Isolated | Strong network effects | 2/5 |
 
@@ -16,9 +16,9 @@
 **What you capture today:** Customer Service Manager feedback, order approval decisions, field corrections, case reclassification, exception handling, validation errors, and human overrides during the review process.
 **How it compounds:** Every correction becomes training data that improves future order classification, information extraction, validation accuracy, and automation rates. As more orders are processed, the AI requires less human intervention and handles more complex scenarios.
 
-### Preference Loop - 3/5
-**What you capture today:** Customer-specific ordering patterns, preferred attachment formats, recurring order types, account-level business rules, approval requirements, and communication preferences.
-**How it compounds:** The system learns how each customer typically places orders and adapts validations and recommendations accordingly. Over time, it reduces friction, anticipates missing information, and increases straight-through processing rates for recurring customers.
+### Preference Loop - 4/5
+**What you capture today:** Customer-specific ordering behavior, recurring order patterns, preferred file formats, account-level validation rules, approval requirements, and historical transaction patterns across 2,000-2,500 customer accounts.
+**How it compounds:** As more orders are processed, the system develops a deeper understanding of how each customer operates, reducing validation effort, predicting missing information, and increasing straight-through processing rates for recurring customers.
 
 ### Domain Context Loop - 5/5
 **What you capture today:** Historical OneForce cases, TRI2 order history, Edenred business rules, operational procedures, document templates, validation logic, approval workflows, customer account structures, and order execution outcomes.
