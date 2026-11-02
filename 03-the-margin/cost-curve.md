@@ -47,3 +47,37 @@ Cost per additional order approaches AI inference cost rather than employee cost
 Target: ≥15% reduction in order processing time within the first 6 months.
 Marginal cost growth becomes substantially lower than order volume growth.
 Productivity gains increase without equivalent growth in Customer Service headcount.
+
+# Margin Calculator, Module 3
+
+## Inputs
+- Avg requests/user/month: 1.2
+- Blended cost/request: $0.03
+- Revenue/user/month: $8
+- Non-AI COGS/user/month: $1
+
+## Current Margin
+- AI COGS/user: $0.04
+- Total COGS/user: $1.04
+- Gross margin: 87.1% ($6.96/user)
+
+## Stress Test
+| Scenario | AI COGS | Margin |
+|----------|---------|--------|
+| 3x Cost  | $0.11 | 86.1% ($6.89) |
+| 2x Usage | $0.07 | 86.6% ($6.93) |
+
+# Pricing Strategy Block, Module 3
+
+## Pricing Strategy
+- Strategy posture: Penetrate
+- Pricing model: Outcome / Resolution
+- Unit of work metered: Customer Orders Processed Autonomously
+- Base fee ($/month): 500
+- Price per unit: $0.20
+- Estimated units/user/month: 100
+- Implied revenue/user/month: $520.00
+
+## Decision Note
+Why this pricing structure fits the buyer and the value delivered: ·
+
