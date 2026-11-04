@@ -33,18 +33,28 @@ Dataset health
 | 4 | | | Y/N | rule / LLM |
 | 5 | | | Y/N | rule / LLM |
 
-**Adversarial rows included:** __
-**Coverage gaps identified by partner:**
+**Adversarial rows included:** 3
+
 
 ## Confidence UX Design
 
-**Approach:** show uncertainty / tiered confidence / human-in-loop trigger
+**Approach:** The AI shows confidence, extracted data, validation results, and reasons behind its decision. Automation level depends on confidence, order value, customer risk profile, and completeness of required information.
 
-**High confidence (>90%):**
-**Medium confidence (70-90%):**
-**Low confidence (<70%):**
+**Confident (>90%):** ✅ Green confidence badge: "Ready for Automation (96%)"
 
-**User control surface:**
+**Uncertain (50-90%):** 🟡 Amber confidence badge: "Review Recommended (74%)"
+
+**Not confident (<50%):** 🔴 Red confidence badge: "Human Review Required (42%)"
+
+**User control surface:** 
+
+The system uses a tiered confidence model with explainability and human oversight. High-confidence orders can be processed automatically, medium-confidence orders require review or clarification, and low-confidence orders are blocked and escalated. Every user correction feeds the evaluation dataset, improving future automation rates and strengthening Edenred's proprietary operational knowledge base.
+
+- Users adjust the confidence threshold
+- Users see AI reasoning / drivers
+- Users correct & override outputs
+- Corrections feed back into the model / dataset
+
 
 ## Reliability Contract
 
