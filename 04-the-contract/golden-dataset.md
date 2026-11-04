@@ -1,40 +1,28 @@
 # Golden Dataset & Reliability Contract
 
-Golden Dataset, Module 4
-
-Test cases:
-  1. Edge: N · Judge: rule, IN: Email requesting 10 Ticket Restaurant card reloads with all employee IDs attached in Excel → OUT: Order identified as Reload. Data extracted. Ready for TRI2 creation.
-  2. Edge: N · Judge: rule, IN: Email requesting 2 duplicate cards due to loss → OUT: Duplicate Card Order. Customer identified. Ready for creation.
-  3. Edge: N · Judge: rule, IN: Email requesting cancellation of 5 cards → OUT: Card Cancellation Order. Extract impacted cards.
-  4. Edge: N · Judge: rule, IN: Email asking "Where is my last order?" → OUT: Classified as Inquiry, not Order. Route to Customer Service.
-  5. Edge: N · Judge: rule, IN: Email containing marketing newsletter forwarded accidentally → OUT: Classified as Non-Order. Close case.
-  6. Edge: Y · Judge: rule, IN: Reload request with PDF attachment missing employee identifiers → OUT: Reload detected but flagged for missing mandatory data. Human review required.
-  7. Edge: Y · Judge: both, IN: Email containing multiple orders: reload + duplicate card request → OUT: Detect two orders and create two structured outputs.
-  8. Edge: Y · Judge: rule, IN: Large account reload request exceeding normal order volume threshold → OUT: Correct extraction plus risk flag for approval workflow.
-  9. Edge: Y · Judge: LLM, IN: Free-text email with informal language: "Please top up everyone's cards like last month" → OUT: Detect ambiguity and request clarification.
-  10. Edge: N · Judge: both, IN: Email in Spanish with Excel attachment and mixed instructions → OUT: Extract correctly and map to structured order workflow.
-  11. Edge: Y · Judge: LLM, IN: Email contains both a complaint and a hidden reload request → OUT: Correctly identify reload order and separate complaint.
-  12. Edge: Y · Judge: rule, IN: Excel attachment contains incorrect employee IDs and duplicate rows → OUT: Detect validation errors and stop automation.
-  13. Edge: Y · Judge: rule, IN: High-value reload request sent by unauthorized sender → OUT: Reject automated execution and escalate to human review.
-
-Dataset health
-- Total: 13
-- Edge cases: 7 (53.8%)
-- Judge mix: 69% rule / 15% LLM / 15% both
-
-
 ## Golden Dataset Spec
 
 | # | Input | Expected Output | Edge Case? | Judge Type |
 |---|-------|----------------|-----------|-----------|
-| 1 | | | Y/N | rule / LLM |
-| 2 | | | Y/N | rule / LLM |
-| 3 | | | Y/N | rule / LLM |
-| 4 | | | Y/N | rule / LLM |
-| 5 | | | Y/N | rule / LLM |
+| 1 | Email requesting 10 Ticket Restaurant card reloads with all employee IDs attached in Excel | Order identified as Reload. Data extracted. Ready for TRI2 creation. | N | rule |
+| 2 | Email requesting 2 duplicate cards due to loss | Duplicate Card Order. Customer identified. Ready for creation. | N | rule |
+| 3 | Email requesting cancellation of 5 cards | Card Cancellation Order. Extract impacted cards. | N | rule |
+| 4 | Email asking "Where is my last order?" | Classified as Inquiry, not Order. Route to Customer Service. | N | rule |
+| 5 | Email containing marketing newsletter forwarded accidentally | Classified as Non-Order. Close case.| N | rule |
+| 6 | Reload request with PDF attachment missing employee identifiers | Reload detected but flagged for missing mandatory data. Human review required. | Y | rule |
+| 7 | Email containing multiple orders: reload + duplicate card request | Detect two orders and create two structured outputs. | Y | rule + LLM |
+| 8 | Large account reload request exceeding normal order volume threshold | Correct extraction plus risk flag for approval workflow. | Y | rule |
+| 9 | Free-text email with informal language: "Please top up everyone's cards like last month" | Detect ambiguity and request clarification. | Y | LLM |
+| 10 | Email in Spanish with Excel attachment and mixed instructions | Extract correctly and map to structured order workflow. | N | rule + LLM |
+| 11 | Email contains both a complaint and a hidden reload request | Correctly identify reload order and separate complaint. | Y | LLM |
+| 12 | Excel attachment contains incorrect employee IDs and duplicate rows | Detect validation errors and stop automation. | Y | rule |
+| 13 | High-value reload request sent by unauthorized sender | Reject automated execution and escalate to human review.| Y | rule |
 
 **Adversarial rows included:** 3
-
+**Dataset health**
+- Total: 13
+- Edge cases: 7 (53.8%)
+- Judge mix: 69% rule / 15% LLM / 15% both
 
 ## Confidence UX Design
 
@@ -55,18 +43,26 @@ The system uses a tiered confidence model with explainability and human oversigh
 - Users correct & override outputs
 - Corrections feed back into the model / dataset
 
-
 ## Reliability Contract
 
 | Metric | Target | Measurement | Alert Threshold |
 |--------|--------|-------------|-----------------|
-| Accuracy | | | |
-| Hallucination rate | | | |
-| Latency (p95) | | | |
-| Drift velocity | | | |
+| Accuracy | 92% | Weekly evaluation against the Golden Dataset (~150 curated customer order cases including reloads, new cards, duplicates, cancellations, inquiries, spam, and edge cases). Measure: Correct classification (Order vs Non-Order) · Correct order type identification · Correct data extraction · Correct routing decision · Correct TRI2 action recommendation | <88% → trigger gold-set audit |
+| Hallucination rate | <0.5% | Weekly review of AI-generated outputs to detect: Invented employee IDs · Invented customer data · Invented card quantities · Invented validation results · Invented business-rule decisions. 
+- Any field not present in the email, attachment, OneForce record, or enterprise source is considered a hallucination. | >2% → auto-rollback to last good model |
+| Latency (p95) | <15 seconds | Monitor end-to-end workflow: Email analysis · Attachment processing · Validation execution · AI recommendation generation. 
+- Measured through Azure AI Foundry monitoring and workflow telemetry. | >30 seconds for 15 minutes → page on-call |
+| Drift velocity | <1% accuracy decay/month | Monthly comparison of: Golden Dataset performance · Production order outcomes · Human corrections
+New customer formats · New attachment patterns. 
+- Track degradation in classification and extraction accuracy. | >3% accuracy decay/month → trigger gold-set audit |
 
 ## HITL Architecture
-<!-- When does a human step in? What's the escalation path? -->
 
-## Red-Team Findings
-*What failure mode did your partner find that you missed?*
+**Trigger:** Human review is automatically triggered when: Confidence score <90% · Missing mandatory order information
+High-value order · Large strategic account · Business-rule conflict detected · Unauthorized sender detected · Validation failure occurs.
+
+**Reviewer:** Customer Service Manager (DAC Large Accounts Team) & Senior Customer Service Agent for business hours coverage
+
+**Feedback loop:** - All reviewer actions are captured: Classification corrections · Data extraction corrections · Missing-field identification · Validation overrides · Order-type changes · Approval/rejection decisions. 
+
+- Corrections are added to: Golden Dataset (weekly) · Evaluation benchmark (monthly) · Future model improvement cycles.
