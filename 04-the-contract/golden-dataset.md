@@ -48,13 +48,10 @@ The system uses a tiered confidence model with explainability and human oversigh
 | Metric | Target | Measurement | Alert Threshold |
 |--------|--------|-------------|-----------------|
 | Accuracy | 92% | Weekly evaluation against the Golden Dataset (~150 curated customer order cases including reloads, new cards, duplicates, cancellations, inquiries, spam, and edge cases). Measure: Correct classification (Order vs Non-Order) · Correct order type identification · Correct data extraction · Correct routing decision · Correct TRI2 action recommendation | <88% → trigger gold-set audit |
-| Hallucination rate | <0.5% | Weekly review of AI-generated outputs to detect: Invented employee IDs · Invented customer data · Invented card quantities · Invented validation results · Invented business-rule decisions. 
-- Any field not present in the email, attachment, OneForce record, or enterprise source is considered a hallucination. | >2% → auto-rollback to last good model |
-| Latency (p95) | <15 seconds | Monitor end-to-end workflow: Email analysis · Attachment processing · Validation execution · AI recommendation generation. 
-- Measured through Azure AI Foundry monitoring and workflow telemetry. | >30 seconds for 15 minutes → page on-call |
+| Hallucination rate | <0.5% | Weekly review of AI-generated outputs to detect: Invented employee IDs · Invented customer data · Invented card quantities · Invented validation results · Invented business-rule decisions. Any field not present in the email, attachment, OneForce record, or enterprise source is considered a hallucination. | >2% → auto-rollback to last good model |
+| Latency (p95) | <15 seconds | Monitor end-to-end workflow: Email analysis · Attachment processing · Validation execution · AI recommendation generation. Measured through Azure AI Foundry monitoring and workflow telemetry. | >30 seconds for 15 minutes → page on-call |
 | Drift velocity | <1% accuracy decay/month | Monthly comparison of: Golden Dataset performance · Production order outcomes · Human corrections
-New customer formats · New attachment patterns. 
-- Track degradation in classification and extraction accuracy. | >3% accuracy decay/month → trigger gold-set audit |
+New customer formats · New attachment patterns. Track degradation in classification and extraction accuracy. | >3% accuracy decay/month → trigger gold-set audit |
 
 ## HITL Architecture
 
