@@ -93,9 +93,11 @@ Approval owner: Product Owner.
 Shadow AI Audit (user-side), Module 5
 
 ## Discover, User-Side Workarounds
-- Agents copy customer emails and Excel attachments into ChatGPT or Copilot to classify the request, identify the order type, and summarize the actions required. | source: User interview | signal: Workflow gap | freq: H | spend: $2000/mo | decision: Build
-- Customer Service Managers manually validate extracted information from emails and build internal Excel trackers to control approvals, exceptions, and special customer rules. | source: User interview | signal: Workflow gap | freq: H | spend: $3000/mo | decision: Build
-- Agents use AI tools to draft customer responses confirming orders, requesting missing information, or explaining validation issues. | source: Support ticket | signal: Trust gap | freq: M | spend: $500/mo | decision: Partner
+| Tool | Owner | Risk Level | Decision |
+|------|-------|-----------|----------|
+Agents copy customer emails and Excel attachments into ChatGPT or Copilot to classify the request, identify the order type, and summarize the actions required. | source: User interview | signal: Workflow gap | freq: H | spend: $2000/mo | decision: Build
+Customer Service Managers manually validate extracted information from emails and build internal Excel trackers to control approvals, exceptions, and special customer rules. | source: User interview | signal: Workflow gap | freq: H | spend: $3000/mo | decision: Build
+Agents use AI tools to draft customer responses confirming orders, requesting missing information, or explaining validation issues. | source: Support ticket | signal: Trust gap | freq: M | spend: $500/mo | decision: Partner
 
 ## Pattern Assessment
 - Workarounds found: 3
