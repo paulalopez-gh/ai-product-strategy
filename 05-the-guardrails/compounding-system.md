@@ -79,19 +79,6 @@ Approval owner: Product Owner.
 
 ## Shadow AI Audit
 
-| Tool | Owner | Risk Level | Decision |
-|------|-------|-----------|----------|
-| | | H / M / L | keep / govern / kill |
-| | | H / M / L | keep / govern / kill |
-| | | H / M / L | keep / govern / kill |
-
-**Total tools found:**
-**Tools after triage:**
-**Estimated hidden spend:**
-
-
-Shadow AI Audit (user-side), Module 5
-
 ## Discover, User-Side Workarounds
 | Tool | Owner | Risk Level | Decision |
 |------|-------|-----------|----------|
