@@ -88,3 +88,67 @@ Approval owner: Product Owner.
 **Total tools found:**
 **Tools after triage:**
 **Estimated hidden spend:**
+
+
+Shadow AI Audit (user-side), Module 5
+
+## Discover, User-Side Workarounds
+- Agents copy customer emails and Excel attachments into ChatGPT or Copilot to classify the request, identify the order type, and summarize the actions required. | source: User interview | signal: Workflow gap | freq: H | spend: $2000/mo | decision: Build
+- Customer Service Managers manually validate extracted information from emails and build internal Excel trackers to control approvals, exceptions, and special customer rules. | source: User interview | signal: Workflow gap | freq: H | spend: $3000/mo | decision: Build
+- Agents use AI tools to draft customer responses confirming orders, requesting missing information, or explaining validation issues. | source: Support ticket | signal: Trust gap | freq: M | spend: $500/mo | decision: Partner
+
+## Pattern Assessment
+- Workarounds found: 3
+- Build candidates: 2
+- Partner candidates: 1
+- Ignore decisions: 0
+- Adjacent spend: $5500/mo
+- Dominant signal: Workflow gap
+
+## Action Plan
+### Build
+1. Native email and attachment understanding.
+The product will automatically classify incoming emails, identify order types, extract data from PDFs and Excel files, and prepare structured order information without requiring agents to use external AI tools.
+
+2. Automated business-rule validation and exception handling.
+Customer-specific validations, authorization checks, mandatory field verification, and approval workflows will be built directly into the product instead of relying on manual Excel trackers and operational knowledge.
+
+3. Review and approval workspace.
+Managers will review low-confidence cases, approve exceptions, and provide corrections directly within the product, feeding the Golden Dataset and improving future automation rates.
+
+Sequencing:
+Phase 1 → Email classification and extraction.
+Phase 2 → Business validation and approval workflows.
+Phase 3 → TRI2 order orchestration and autonomous execution for low-risk orders.
+
+### Partner
+Microsoft Copilot for email drafting and communication assistance.
+
+Integration:
+The AI agent generates structured order outcomes and recommended customer communications. Microsoft Copilot can be used to enhance message drafting, tone adjustment, translation, and productivity tasks while keeping operational decisions inside the Edenred platform.
+
+Data Flow:
+OneForce → AI Order Agent → Structured output → Copilot-assisted communication (optional).
+
+### Ignore + Monitor
+General-purpose AI usage for productivity tasks such as meeting notes, email rewriting, document summarization, translation, and brainstorming.
+
+Rationale:
+These activities are not part of the core order-processing workflow and do not create strategic differentiation for Edenred.
+
+Signals to re-evaluate:
+- More than 30% of DAC users adopting the same external AI workflow.
+- Significant time spent outside OneForce and TRI2.
+- Repeated requests for the same capability during user interviews.
+- Operational risks caused by users moving customer data into unmanaged tools.
+
+## Roadmap Brief
+Based on your audit: 3 user-side workarounds discovered.
+Decisions: 2 build · 1 partner · 0 ignore · 0 TBD.
+Estimated adjacent spend: $5500/mo across surveyed users.
+Dominant signal: Workflow gap.
+
+Recommended next step: Workflow gaps dominate, your users are stitching your product into multi-step pipelines. Strongest near-term move is partner integrations with the AI tools they already chain in.
+
+Sequence the Build column by frequency × strategic relevance. Confirm Partner candidates with the external tools' partnership teams. Re-run this audit each quarter, workarounds shift fast.
+
