@@ -51,9 +51,8 @@
 
 **Now:** Build an AI-native operations agent that understands customer emails, validates business rules, creates orders in TRI2, learns from human feedback, and progressively automates Edenred's order-processing workflow at scale.
 
-
-# AI Product Strategy Evaluation
-## AI-Native Order Processing Automation for OneForce & TRI2
+## AI Product Strategy Evaluation
+# AI-Native Order Processing Automation for OneForce & TRI2
 
 ---
 
