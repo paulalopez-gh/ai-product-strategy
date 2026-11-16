@@ -99,11 +99,11 @@
 
 **How you get this funded, shipped, and adopted.**
 
-- **Horizon 1 (Now):**
-- **Horizon 2 (Next):**
-- **Horizon 3 (Bet):**
-- **Board Narrative:** **The case:**
-- **Ask:** ## M1 Baseline vs. Now
+- **Horizon 1 (Now):** Build AI copilot for email classification and order extraction · Create Golden Dataset and Human-in-the-Loop workflow · Pilot low-risk reload orders with DAC Manager
+- **Horizon 2 (Next):** Integrate AI agent with TRI2 for order creation · Deploy customer-specific validation and approval rules · Expand automation to new cards, duplicates, and cancellations
+- **Horizon 3 (Bet):** Fully autonomous AI Operations Agent across all order types · Cross-product automation (Restaurant, Mobility, Nursery, future benefits)
+- **Board Narrative:** Edenred can transform customer order processing from a manual workflow into an AI-native operation, reducing costs and processing times while continuously improving through proprietary operational data.
+- **Ask:** Fund and support a phased rollout starting with low-risk reload orders, while building the feedback loops, governance, and operational knowledge needed to reach 85% automation.
 - **Key Strategic Change:**
 
 → Details: [`06-the-pitch/`](06-the-pitch/)
