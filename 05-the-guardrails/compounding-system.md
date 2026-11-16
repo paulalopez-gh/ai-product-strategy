@@ -141,3 +141,24 @@ Recommended next step: Workflow gaps dominate, your users are stitching your pro
 
 Sequence the Build column by frequency × strategic relevance. Confirm Partner candidates with the external tools' partnership teams. Re-run this audit each quarter, workarounds shift fast.
 
+## Responsible AI Maturity Scorer, Module 5
+
+Total: 15/25, Developing
+Some practices in place. Gaps will surface under scrutiny.
+Weakest: Compliance, Transparency, Fairness, Privacy, Accountability
+
+Compliance: 3/5
+1 = no formal compliance, 5 = certified and audited
+
+Transparency: 3/5
+1 = black box, 5 = full explainability + audit trails
+
+Fairness: 3/5
+1 = no bias testing, 5 = continuous monitoring + remediation
+
+Privacy: 3/5
+1 = minimal consent, 5 = privacy-by-design + user controls
+
+Accountability: 3/5
+1 = no owner, 5 = RACI defined + incident playbooks
+
